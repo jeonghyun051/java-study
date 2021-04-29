@@ -15,15 +15,11 @@ public class Prob4 {
 			for(int i = 0; i<j; i++) {
 
 				System.out.print(text.charAt(i));
-				
-				
+		
 			}
 			System.out.println("");
 			
 		}
-
-
 		scanner.close();
 	}
-
 }

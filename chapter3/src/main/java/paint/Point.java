@@ -1,13 +1,9 @@
 package paint;
 
-public class Point {
+public class Point extends Shape{
 
 	private int x;
 	private int y;
-
-	public Point() {
-
-	}
 
 	public Point(int x, int y) {
 		this.x = x;
@@ -30,7 +26,8 @@ public class Point {
 		this.y = y;
 	}
 
-	public void show() {
+	@Override
+	public void draw() {
 		System.out.println("점[" + x + "," + y + "]에 점을 그렸습니다.");
 
 	}

@@ -21,30 +21,5 @@ public class Prob5 {
             }
 
         }
-
-//		for (int i = 1; i < 100; i++) {
-//			
-//			int a = i/10; // 몫
-//			int b = i%10; // 나머지
-//			int count1 =0; 
-//			int count2 = 0;
-//			
-//			if(a==3 || a== 6 || a==9) {
-//
-//				count1++;
-//			}
-//			if(b==3 || b==6 || b==9) {
-//
-//				count2++;
-//			}
-//			
-//			if (count1 == 1 && count2 == 1) {
-//				
-//				System.out.println(i + "짝짝");
-//			} else if (count1 == 1 && count2 == 0 || count1 ==0 && count2 ==1) {
-//				System.out.println(i + "짝");
-//			}
-//		}
-
 	}
 }

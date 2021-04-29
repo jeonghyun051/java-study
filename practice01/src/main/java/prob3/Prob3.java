@@ -35,7 +35,7 @@ public class Prob3 {
 			}
 			System.out.println("");
 
-			scanner.close();
+			//scanner.close();
 		}
 	}
 }
