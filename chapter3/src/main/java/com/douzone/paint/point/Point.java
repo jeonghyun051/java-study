@@ -1,4 +1,6 @@
-package paint;
+package com.douzone.paint.point;
+
+import com.douzone.paint.shape.Shape;
 
 public class Point extends Shape{
 
