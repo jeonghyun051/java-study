@@ -10,6 +10,7 @@ public class MainApp {
 			stack.push("!!!");
 			stack.push("java");
 			stack.push(".");
+			System.out.println(stack);
 
 			while (stack.isEmpty() == false) {
 				String s = stack.pop();
@@ -24,7 +25,7 @@ public class MainApp {
 			System.out.println(stack.pop());
 			System.out.println(stack.pop());
 			
-		} catch ( MyStackException ex) {
+		} catch ( Exception ex) {
 			System.out.println( ex );
 		}
 

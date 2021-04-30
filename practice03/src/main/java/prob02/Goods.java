@@ -5,6 +5,7 @@ public class Goods {
 	private String title;
 	private int price;
 	private int count;
+	
 	public String getTitle() {
 		return title;
 	}

@@ -17,7 +17,7 @@ public class Account {
 	
 	public void save(int money) {
 		this.balance += money;
-		System.out.println(accountNo + " " + "계좌에" + " " + balance + "만원이 입금되었습니다.");
+		System.out.println(accountNo + " " + "계좌에" + " " + money + "만원이 입금되었습니다.");
 	}
 	
 	public void deposit(int money) {
