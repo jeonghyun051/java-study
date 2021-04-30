@@ -11,7 +11,6 @@ public class MyStack extends MainApp{
 	public void push(String data) {
 		top++;
 	
-		
 	}
 	
 	public String pop() {
