@@ -6,6 +6,7 @@ public class Tv {
 	private int volume;		// 0~100
 	private boolean power;
 
+	
 	public Tv() {
 		// TODO Auto-generated constructor stub
 	}
