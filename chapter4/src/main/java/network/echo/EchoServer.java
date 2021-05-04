@@ -30,44 +30,13 @@ public class EchoServer {
 			
 			// 3. accept
 			// 클라이언트의 연결 요청을 기다린다.
-			Socket socket = serverSocket.accept(); // blocking
-
-			InetSocketAddress inetRemoteSocketAddress = (InetSocketAddress) socket.getRemoteSocketAddress(); // 포트번호랑
-			String remoteHostAddress = inetRemoteSocketAddress.getAddress().getHostAddress();
-			int remoteHostPort = inetRemoteSocketAddress.getPort();
-			log("connected by client[" + remoteHostAddress + ":" + remoteHostPort + "]");
-
-			try {
-				// 4. IO Stream 받아오기
-				BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream(), "utf-8"));
-				PrintWriter pw = new PrintWriter(new OutputStreamWriter(socket.getOutputStream(), "utf-8"), true);
+			while(true) {
+				Socket socket = serverSocket.accept(); // blocking
 				
-				while (true) {
-					// 4. 데이터 읽기
-					String data = br.readLine();
-					if(data == null) {
-						log("closed by client");
-						break;
-					}
-					
-					log("received:" +  data);
-					
-					// 5. 데이터 쓰기
-					pw.println(data); // 개행을 붙여서 구분
-				}
-			} catch (SocketException e) {
-				log("suddenly closed by client");
-			} catch (IOException e) {
-				e.printStackTrace();
-			} finally {
-				try {
-					if(socket != null && socket.isClosed() == false) {
-						socket.close();
-					}
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
+				Thread thread = new EchoServerReceiveThread(socket);
+				thread.start();
 			}
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
@@ -84,7 +53,7 @@ public class EchoServer {
 		}
 	}
 	
-	private static void log(String log) {
+	public static void log(String log) {
 		System.out.println("[EchoServer]" + log );
 	}
 }
