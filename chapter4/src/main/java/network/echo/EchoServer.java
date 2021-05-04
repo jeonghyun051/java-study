@@ -39,8 +39,7 @@ public class EchoServer {
 
 			try {
 				// 4. IO Stream 받아오기
-				InputStream is = socket.getInputStream();
-				BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+				BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream(), "utf-8"));
 				PrintWriter pw = new PrintWriter(new OutputStreamWriter(socket.getOutputStream(), "utf-8"), true);
 				
 				while (true) {
@@ -54,7 +53,7 @@ public class EchoServer {
 					log("received:" +  data);
 					
 					// 5. 데이터 쓰기
-					pw.print(data); // 개행을 붙여서 구분
+					pw.println(data); // 개행을 붙여서 구분
 				}
 			} catch (SocketException e) {
 				log("suddenly closed by client");
@@ -62,7 +61,7 @@ public class EchoServer {
 				e.printStackTrace();
 			} finally {
 				try {
-					if (socket != null) {
+					if(socket != null && socket.isClosed() == false) {
 						socket.close();
 					}
 				} catch (IOException e) {
@@ -73,11 +72,11 @@ public class EchoServer {
 			e.printStackTrace();
 		} finally {
 			try {
-				if (serverSocket != null && serverSocket.isClosed()) {
+				if(serverSocket != null && serverSocket.isClosed() == false) {
 					serverSocket.close();
 
 				}
-				serverSocket.close();
+				
 			} catch (IOException e) {
 
 				e.printStackTrace();
