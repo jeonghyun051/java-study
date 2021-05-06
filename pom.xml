@@ -47,5 +47,7 @@
   	<module>practice05</module>
   	<module>chapter3</module>
   	<module>chapter4</module>
+  	<module>finaltest</module>
+  	<module>network</module>
   </modules>
 </project>

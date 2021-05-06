@@ -1,4 +1,4 @@
-package network.echo;
+package echo;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -33,7 +33,6 @@ public class EchoClient {
 			// 3. IO Stream 받아오기
 			BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream(),"utf-8"));
 			PrintWriter pw = new PrintWriter(new OutputStreamWriter(socket.getOutputStream(), "utf-8"), true);
-				
 			
 			while(true) {
 				// 5. 키보드 입력 받기
@@ -42,7 +41,6 @@ public class EchoClient {
 				
 				if("exid".equals(line)) {
 					break;
-					
 				}
 				
 				pw.println(line);
@@ -50,8 +48,7 @@ public class EchoClient {
 				// 7. 데이터 읽기
 				String data = br.readLine();
 				if (data == null) {
-					log("closed by server");
-					
+					log("closed by server");	
 				}
 				
 				// 8. 콘솔 출력
