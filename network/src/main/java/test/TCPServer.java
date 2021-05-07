@@ -16,6 +16,10 @@ public class TCPServer {
 
 			// 1. 서버소켓 생성
 			serverSocket = new ServerSocket();
+			
+			// 1.1 Time-Wait 상태에서도 소켓에 포트 번호
+			//     할당이 가능하게 하기 위해서..
+			serverSocket.setReuseAddress(true);
 
 			// 2. 바인딩(Binding)
 			// Socket에 InetSocketAddress(IPAddress + Port)
