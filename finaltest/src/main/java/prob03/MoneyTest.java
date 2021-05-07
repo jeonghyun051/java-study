@@ -3,11 +3,17 @@ package prob03;
 public class MoneyTest {
 
 	public static void main(String[] args) {
-		Money five  = new Money( 5 );
-        Money two   = new Money( 2 );
-        Money three = new Money( 3 );
-        Money ten   = new Money( 10 );
-        
+		Money five  = new Money(5);
+        Money two   = new Money(2);
+        Money three = new Money(3);
+        Money ten   = new Money(10);
+        //Money money2 = two.add(three);
+        //System.out.println("값" + money2);
+        System.out.println(five.equals(two.add(three)));
+        //System.out.println(five);
+        //System.out.println(money2);
+    
+//        
         if(    five.equals( two.add( three ) )
             && three.equals( five.minus( two ) )
             && ten.equals( five.multiply( two ) )
