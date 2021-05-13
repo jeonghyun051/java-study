@@ -103,13 +103,14 @@ public class RequestHandler extends Thread {
 		File file = new File(DOCUMENTROOT + url);
 		System.out.println("file" + file);
 		if(file.exists() == false) {
+			System.out.println("file not found" + file.getAbsolutePath());
 			// 응답 예시
 			// HTTP/1.1 404 File Not Found\r\n
 			// Content-Type:text/html; charset=utf-8\r\n
 			// \r\n
 			// HTML 에러 문서 (./webapp/error/404.html)
 			
-			response404Error(os, url, protocol);
+			//response404Error(os, url, protocol);
 			return;
 		}
 		
